@@ -11,7 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.vk.directop.spendless.presentation.registration.RegistrationScreen
+import com.vk.directop.spendless.presentation.registration.RegistrationViewModel
 import com.vk.directop.spendless.ui.theme.SpendLessTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +23,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             SpendLessTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    val viewModel = viewModel<RegistrationViewModel>()
                     RegistrationScreen(
+                        state = viewModel.state,
+                        onAction = viewModel::onAction,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

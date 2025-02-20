@@ -47,6 +47,7 @@ import com.vk.directop.spendless.ui.theme.FigtreeFontFamily
 @Composable
 fun RegistrationScreen(
     state: RegistrationState,
+    onAction: (RegistrationAction) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -78,8 +79,10 @@ fun RegistrationScreen(
             modifier = Modifier.padding(top = 8.dp, bottom = 36.dp)
         )
         OutlinedTextField(
-            value = "value",
-            onValueChange = {},
+            value = state.username,
+            onValueChange = {
+                onAction(RegistrationAction.OnUsernameChange(it))
+            },
             modifier = modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
@@ -156,6 +159,7 @@ private fun RegistrationScreenPreview() {
     MaterialTheme {
         RegistrationScreen(
             state = RegistrationState(),
+            onAction = {},
             modifier = Modifier
                 .background(Color.White)
         )
