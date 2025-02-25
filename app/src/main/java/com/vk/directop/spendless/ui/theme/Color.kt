@@ -13,3 +13,7 @@ val Pink40 = Color(0xFF7D5260)
 val DarkBackground = Color(0xFF578CFF)
 val LightBackground = Color(0xFFE2E7F3)
 val ErrorBackground = Color(0xFFA40019)
+
+val SeparatorBackground = Color(0x148138FF)
+val unselectedFontColor = Color(0xFF24005A)
+
